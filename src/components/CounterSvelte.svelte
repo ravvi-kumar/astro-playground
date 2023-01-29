@@ -1,11 +1,12 @@
-<script>
-  import { afterUpdate } from "svelte";
-  import { getState } from "../store/counter.store";
+<script lang="ts">
+  import { getState, subscribe } from "../store/counter.store";
   let svelteCount = 0;
-  function handleClick(event) {
-    const { count, inc } = getState();
+  const { inc } = getState();
+  const subscriber = subscribe((state) => {
+    svelteCount = state.count;
+  });
+  function handleClick() {
     inc(1);
-    svelteCount = count;
   }
 </script>
 

@@ -7,7 +7,6 @@ const ReactCounter = () => {
     <>
       <button
         onClick={() => {
-          console.log(count);
           inc(1);
         }}
       >
